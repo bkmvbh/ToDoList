@@ -9,14 +9,8 @@ import Foundation
 import UIKit
 
 class DataBaseManager {
-    
-    private var dataSource: [Task] = [
-        Task(title: "Почитать книгу", isTaskDone: false, dateOfCreating: .now),
-        Task(title: "Уборка в квартире", isTaskDone: false, dateOfCreating: .now),
-        Task(title: "Заняться спортом", isTaskDone: false, dateOfCreating: .now),
-        Task(title: "Работа над проектом", isTaskDone: false, dateOfCreating: .now)
-    ]
-    
+    var dataSource: [Task] = []
+
     func getAllTasks() -> [Task] {
         return dataSource
     }
@@ -35,4 +29,3 @@ class DataBaseManager {
         dataSource.insert(task, at: index)
     }
 }
-

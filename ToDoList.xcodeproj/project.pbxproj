@@ -16,6 +16,9 @@
 		9F304C2B2CF8985900B07B4E /* TaskTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304C2A2CF8985900B07B4E /* TaskTableView.swift */; };
 		9F304C2D2CF8992500B07B4E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304C2C2CF8992500B07B4E /* Task.swift */; };
 		9F304C2F2CF89A1D00B07B4E /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304C2E2CF89A1D00B07B4E /* DataBaseManager.swift */; };
+		9F304C312CFCD95700B07B4E /* FetchTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304C302CFCD95700B07B4E /* FetchTasksManager.swift */; };
+		9F304C332CFCDFE700B07B4E /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304C322CFCDFE700B07B4E /* Todo.swift */; };
+		9F304C362CFDF5C100B07B4E /* TaskCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F304C342CFDF5C100B07B4E /* TaskCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		9F304C2A2CF8985900B07B4E /* TaskTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableView.swift; sourceTree = "<group>"; };
 		9F304C2C2CF8992500B07B4E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9F304C2E2CF89A1D00B07B4E /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		9F304C302CFCD95700B07B4E /* FetchTasksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTasksManager.swift; sourceTree = "<group>"; };
+		9F304C322CFCDFE700B07B4E /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		9F304C352CFDF5C100B07B4E /* TaskCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +73,14 @@
 				9F304C182CF891D200B07B4E /* ViewController.swift */,
 				9F304C2A2CF8985900B07B4E /* TaskTableView.swift */,
 				9F304C2E2CF89A1D00B07B4E /* DataBaseManager.swift */,
+				9F304C302CFCD95700B07B4E /* FetchTasksManager.swift */,
 				9F304C282CF897B200B07B4E /* TaskTableViewCell.swift */,
 				9F304C2C2CF8992500B07B4E /* Task.swift */,
+				9F304C322CFCDFE700B07B4E /* Todo.swift */,
 				9F304C1D2CF891D300B07B4E /* Assets.xcassets */,
 				9F304C1F2CF891D300B07B4E /* LaunchScreen.storyboard */,
 				9F304C222CF891D300B07B4E /* Info.plist */,
+				9F304C342CFDF5C100B07B4E /* TaskCoreData.xcdatamodeld */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -150,9 +159,12 @@
 				9F304C2B2CF8985900B07B4E /* TaskTableView.swift in Sources */,
 				9F304C292CF897B200B07B4E /* TaskTableViewCell.swift in Sources */,
 				9F304C152CF891D200B07B4E /* AppDelegate.swift in Sources */,
+				9F304C332CFCDFE700B07B4E /* Todo.swift in Sources */,
 				9F304C2F2CF89A1D00B07B4E /* DataBaseManager.swift in Sources */,
+				9F304C312CFCD95700B07B4E /* FetchTasksManager.swift in Sources */,
 				9F304C2D2CF8992500B07B4E /* Task.swift in Sources */,
 				9F304C172CF891D200B07B4E /* SceneDelegate.swift in Sources */,
+				9F304C362CFDF5C100B07B4E /* TaskCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +375,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9F304C342CFDF5C100B07B4E /* TaskCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9F304C352CFDF5C100B07B4E /* TaskCoreData.xcdatamodel */,
+			);
+			currentVersion = 9F304C352CFDF5C100B07B4E /* TaskCoreData.xcdatamodel */;
+			name = TaskCoreData.xcdatamodeld;
+			path = /Users/ilmirsarafutdinov/Documents/GitHub/ToDoList/ToDoList/TaskCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9F304C092CF891D200B07B4E /* Project object */;
 }

@@ -7,9 +7,10 @@
 
 import UIKit
 
-struct Task: Hashable, Identifiable {
-    let id: UUID = UUID()
+struct Task: Hashable, Identifiable, Decodable {
+    let id: Int
     var title: String
+    var discriptiontitle: String
     var isTaskDone: Bool
     var dateOfCreating: Date
 }

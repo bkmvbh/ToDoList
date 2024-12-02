@@ -35,12 +35,12 @@ class TaskTableView: UIView {
         table.separatorStyle = .none
         table.backgroundColor = .black
         table.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.reuseIdentifier)
-        table.estimatedRowHeight = 200
+        table.estimatedRowHeight = 90
+        table.rowHeight = UITableView.automaticDimension
         
         return table
     }()
-    
-    
+        
     lazy var taskLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,6 @@ class TaskTableView: UIView {
         return label
     }()
         
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
@@ -82,7 +81,7 @@ class TaskTableView: UIView {
             searchTextField.topAnchor.constraint(equalTo: taskLabel.bottomAnchor, constant: CGFloat(searchLeadingTrailingAncorConstant)),
             searchTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(searchLeadingTrailingAncorConstant)),
             searchTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CGFloat(searchLeadingTrailingAncorConstant)),
-            tableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
