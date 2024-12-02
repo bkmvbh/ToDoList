@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var dataSource: UITableViewDiffableDataSource<Int, Task>?
     let dataBase = DataBaseManager()
     let fetchManager = FetchTasksManager()
+    lazy var dataManager = CoreDataManager.shared
     
     var filteredTasks: [Task] = []
 
