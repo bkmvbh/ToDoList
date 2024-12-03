@@ -11,8 +11,9 @@ class TaskTableViewCell: UITableViewCell {
     
     let avatarImageViewHeightWidthAnchorConstraint = 25
     let mainStackViewRightLeadingAnchorConstraint = 16
-    
-    var task: Task?
+    let topAncorConstraint = 10
+    let bottomAndTopAncor = 5
+    var task: Assignment?
     var mainViewController: UpdateDataDelegate?
     
     private lazy var buttonTaskIsCompleted: UIButton = {
@@ -79,14 +80,14 @@ class TaskTableViewCell: UITableViewCell {
 
     }
     
-    func configureCell(with task: Task) {
+    func configureCell(with task: Assignment) {
         self.task = task
         buttonTaskIsCompleted.setImage(UIImage(named: "checkbox_notSelected"), for: .normal)
         buttonTaskIsCompleted.setImage(UIImage(named: "checkbox_selected"), for: .selected)
         nameLabel.text = task.title
         discriptionLabel.text = task.discriptiontitle
         buttonTaskIsCompleted.isSelected = task.isTaskDone
-        dateLabel.text = dateFormatter.string(from: task.dateOfCreating)
+        dateLabel.text = dateFormatter.string(from: task.dateOfCreating ?? Date())
         addAttributesBySelected()
     }
     
@@ -101,19 +102,19 @@ class TaskTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             buttonTaskIsCompleted.widthAnchor.constraint(equalToConstant: CGFloat(avatarImageViewHeightWidthAnchorConstraint)),
             buttonTaskIsCompleted.heightAnchor.constraint(equalToConstant: CGFloat(avatarImageViewHeightWidthAnchorConstraint)),
-            buttonTaskIsCompleted.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            buttonTaskIsCompleted.topAnchor.constraint(equalTo: contentView.topAnchor, constant: CGFloat(topAncorConstraint)),
             buttonTaskIsCompleted.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: CGFloat(mainStackViewRightLeadingAnchorConstraint)),
             
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: CGFloat(topAncorConstraint)),
             nameLabel.leadingAnchor.constraint(equalTo: buttonTaskIsCompleted.trailingAnchor, constant: CGFloat(mainStackViewRightLeadingAnchorConstraint)),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -CGFloat(mainStackViewRightLeadingAnchorConstraint)),
-            discriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
+            discriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: CGFloat(bottomAndTopAncor)),
             discriptionLabel.leadingAnchor.constraint(equalTo: buttonTaskIsCompleted.trailingAnchor, constant: CGFloat(mainStackViewRightLeadingAnchorConstraint)),
             discriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -CGFloat(mainStackViewRightLeadingAnchorConstraint)),
-            dateLabel.topAnchor.constraint(equalTo: discriptionLabel.bottomAnchor, constant: 10),
+            dateLabel.topAnchor.constraint(equalTo: discriptionLabel.bottomAnchor, constant: CGFloat(topAncorConstraint)),
             dateLabel.leadingAnchor.constraint(equalTo: buttonTaskIsCompleted.trailingAnchor, constant: CGFloat(mainStackViewRightLeadingAnchorConstraint)),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -CGFloat(mainStackViewRightLeadingAnchorConstraint)),
-            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -CGFloat(bottomAndTopAncor))
             
         ])
     }
@@ -122,7 +123,7 @@ class TaskTableViewCell: UITableViewCell {
         buttonTaskIsCompleted.isSelected.toggle()
         task?.isTaskDone = buttonTaskIsCompleted.isSelected
         addAttributesBySelected()
-        mainViewController?.updateTask(task: task)
+        mainViewController?.updateTask()
     }
     
     func addAttributesBySelected() {
@@ -149,5 +150,5 @@ extension UITableViewCell {
 }
 
 protocol UpdateDataDelegate {
-    func updateTask(task: Task?)
+    func updateTask()
 }

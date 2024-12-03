@@ -21,7 +21,7 @@ class CoreDataManager: NSObject {
     
     lazy var persistentContainer: NSPersistentContainer = {
        
-        let container = NSPersistentContainer(name: "ToDoList")
+        let container = NSPersistentContainer(name: "TaskCoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                
@@ -45,9 +45,26 @@ class CoreDataManager: NSObject {
 
     func obtainSavedData() -> [Assignment] {
         let assignmentFetchRequest = Assignment.fetchRequest()
-        let result = try? viewContext.fetch(assignmentFetchRequest)
+        let result = try? viewContext.fetch(assignmentFetchRequest).sorted(by: { first, second in
+            return first.id < second.id
+        })
         
         return result ?? []
+    }
+    
+    func delete(assignment: Assignment) {
+        viewContext.delete(assignment)
+        saveContext()
+    }
+    func addNewTask(title: String, description: String) {
+        let newTask = Assignment(context: viewContext)
+        newTask.id = Int64(Date().timeIntervalSince1970)
+        newTask.title = title
+        newTask.discriptiontitle = description
+        newTask.isTaskDone = false
+        newTask.dateOfCreating = Date()
+        
+        saveContext()
     }
 }
 
